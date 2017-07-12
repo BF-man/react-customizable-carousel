@@ -1,0 +1,20 @@
+.rcc-Arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: white;
+
+  &--prev {
+    top: 50%;
+    left: 0;
+  }
+
+  &--next {
+    top: 50%;
+    right: 0;
+  }
+}

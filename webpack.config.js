@@ -4,7 +4,7 @@ var extname = require('path-complete-extname')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: path.resolve('.', 'src', 'index.js'),
+  entry: glob.sync(path.resolve('.', 'src', 'index.js')),
   output: {
     filename: '[name].js',
     path: path.resolve('dist')
@@ -14,7 +14,7 @@ module.exports = {
       { test: /\.(js)$/, exclude: /node_modules/, loader: 'babel-loader' },
       {
         test: /\.css$/,
-        // exclude: /node_modules/,
+        exclude: /node_modules/,
         use: [
           'style-loader',
           'css-loader?importLoaders=1',
@@ -24,7 +24,6 @@ module.exports = {
               plugins: function () {
                 return [
                   require('postcss-import')({ skipDuplicates: true }),
-                  require('postcss-extend'),
                   require('postcss-cssnext')
                 ]
               }

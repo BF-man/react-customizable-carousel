@@ -1,6 +1,5 @@
 var path = require('path')
 var glob = require('glob')
-var extname = require('path-complete-extname')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -9,7 +8,7 @@ module.exports = {
   stats: {
     errorDetails: true
   },
-  entry: path.resolve('.', 'examples', 'index.js'),
+  entry: glob.sync(path.resolve('.', 'examples', 'index.js')),
   output: {
     filename: '[name].js',
     path: path.resolve('dist'),
@@ -30,7 +29,6 @@ module.exports = {
               plugins: function () {
                 return [
                   require('postcss-import')({ skipDuplicates: true }),
-                  require('postcss-extend'),
                   require('postcss-cssnext')
                 ]
               }
