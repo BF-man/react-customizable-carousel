@@ -2,19 +2,25 @@ var path = require('path')
 var glob = require('glob')
 var extname = require('path-complete-extname')
 var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: path.resolve('.', 'src', 'index.js'),
+  devtool: 'sourcemap',
+  stats: {
+    errorDetails: true
+  },
+  entry: path.resolve('.', 'examples', 'index.js'),
   output: {
     filename: '[name].js',
-    path: path.resolve('dist')
+    path: path.resolve('dist'),
+    pathinfo: true
   },
   module: {
     rules: [
       { test: /\.(js)$/, exclude: /node_modules/, loader: 'babel-loader' },
       {
         test: /\.css$/,
-        // exclude: /node_modules/,
+        exclude: /node_modules/,
         use: [
           'style-loader',
           'css-loader?importLoaders=1',
@@ -35,9 +41,13 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.LoaderOptionsPlugin({
+      debug: true
+    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    })
+    }),
+    new HtmlWebpackPlugin({ title: 'React Customizable Carousel', template: path.resolve('examples', 'index.ejs') })
   ],
   resolve: {
     extensions: ['.js'],
@@ -47,5 +57,8 @@ module.exports = {
   },
   resolveLoader: {
     modules: [ path.resolve('node_modules') ]
+  },
+  devServer: {
+    historyApiFallback: true
   }
 }

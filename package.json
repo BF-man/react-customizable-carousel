@@ -6,6 +6,7 @@
   "author": "Bubnov Artem (https://github.com/BF-man)",
   "license": "MIT",
   "scripts": {
+    "dev-server": "webpack-dev-server --hot --port=8080 --output-public-path=http://localhost:8080/ --config ./webpack.config.dev.js --content-base",
     "build": "webpack --config ./webpack.config.js"
   },
   "dependencies": {
@@ -44,6 +45,7 @@
     "eslint-plugin-standard": "^2.0.1",
     "file-loader": "^0.11.2",
     "glob": "^7.1.1",
+    "html-webpack-plugin": "^2.29.0",
     "path-complete-extname": "^0.1.0",
     "stylelint": "^7.8.0",
     "stylelint-config-standard": "^16.0.0",
