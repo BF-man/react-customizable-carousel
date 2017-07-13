@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react'
-import './index.css'
 
 export class Arrow extends PureComponent {
   get cssClass () {

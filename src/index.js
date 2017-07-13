@@ -3,7 +3,6 @@ import List from './List'
 import { Arrow } from './Arrow'
 import FaAngleRight from 'react-icons/lib/fa/angle-right'
 import FaAngleLeft from 'react-icons/lib/fa/angle-left'
-import './index.css'
 
 export class Carousel extends PureComponent {
   state = { currentIndex: 0 }

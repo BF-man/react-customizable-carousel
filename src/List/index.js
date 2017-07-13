@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 import { ListItems } from './ListItems'
 import { withContentRect } from 'react-measure'
-import './index.css'
 
 export class List extends PureComponent {
   render () {
