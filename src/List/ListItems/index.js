@@ -7,7 +7,7 @@ export class ListItems extends Component {
       return cloneElement(child, { style: { width: itemWidth + 'px', display: 'inline-block' } })
     }, this)
     return (
-      <div className='rcc-ListItems' style={{ width: '3000px', whiteSpace: 'nowrap', transform: `translate(${translate + 'px'})`, transitionDuration: '2s' }}>
+      <div className='rcc-ListItems' style={{ transform: `translate(${translate + 'px'})` }}>
         {clonedChildren}
       </div>
     )
