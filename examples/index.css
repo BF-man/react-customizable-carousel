@@ -1,0 +1,13 @@
+.rcc-TestItem {
+  padding: 5px;
+  box-sizing: border-box;
+  position: relative;
+
+  &-content {
+    display: flex;
+    background-color: LightGreen;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+  }
+}

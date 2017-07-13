@@ -1,5 +1,10 @@
 # Customizable react carousel
 
+Latest version: ```0.0.3```
+
+Simple but effective customizable carousel component.
+It will render only ```showItemsCount + 2``` carousel items, where 2 is left and right hidden items.
+
 Running examples locally:
 
   - clone project
@@ -30,3 +35,10 @@ Running examples locally:
         ```
         @import "react-customizable-carousel";
         ```
+
+### Props
+| prop               | type    | default | info                                      |
+| ------------------ | ------- | ------- | ----------------------------------------- |
+| infinite           | boolean | false   | items count should be showItemsCount + 1  |
+| showItemsCount     | integer | 3       |                                           |
+| transitionDuration | integer | 0.5     |                                           |

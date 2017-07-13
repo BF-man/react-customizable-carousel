@@ -9,7 +9,6 @@
 
 .rcc-ListItems {
   white-space: nowrap;
-  transition-duration: 2s;
 }
 
 .rcc-Arrow {
@@ -21,14 +20,14 @@
   cursor: pointer;
   border-radius: 50%;
   background-color: white;
+  font-size: 16px;
+  top: calc(50% - 8px);
 
   &--prev {
-    top: 50%;
     left: 0;
   }
 
   &--next {
-    top: 50%;
     right: 0;
   }
 }
