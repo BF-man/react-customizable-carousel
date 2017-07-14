@@ -4,19 +4,25 @@ import { withContentRect } from 'react-measure'
 
 export class List extends PureComponent {
   render () {
-    const { items, measureRef, showItemsCount, contentRect: { bounds: { width } }, currentIndex } = this.props
+    const { items, measureRef, showItemsCount, contentRect: { bounds: { width } },
+     currentIndex, direction, transitionDuration, translateX } = this.props
     const itemWidth = width / showItemsCount
-    const translate = currentIndex * itemWidth * (-1)
+    const translateByDirection = direction === 'prev' ? itemWidth : (-1) * itemWidth
     return (
       <div className='rcc-List' ref={measureRef}>
-        <ListItems itemWidth={itemWidth} translate={translate}>{items}</ListItems>
+        <ListItems
+          itemWidth={itemWidth}
+          showItemsCount={showItemsCount}
+          currentIndex={currentIndex}
+          direction={direction}
+          transitionDuration={transitionDuration}
+          translateX={translateX === 0 ? 0 : translateByDirection}
+        >
+          {items}
+        </ListItems>
       </div>
     )
   }
-}
-
-List.defaultProps = {
-  showItemsCount: 3
 }
 
 export default withContentRect('bounds')(List)
