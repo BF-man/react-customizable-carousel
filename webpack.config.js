@@ -1,13 +1,13 @@
 var path = require('path')
 var glob = require('glob')
-var extname = require('path-complete-extname')
 var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: glob.sync(path.resolve('.', 'src', 'index.js')),
+  entry: glob.sync(path.resolve('.', 'examples', 'index.js')),
   output: {
-    filename: '[name].js',
-    path: path.resolve('dist')
+    filename: '[name]-[hash].js',
+    path: path.resolve('demo')
   },
   module: {
     rules: [
@@ -34,9 +34,24 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.LoaderOptionsPlugin({
+      minimize: true
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: false,
+      comments: false,
+      compress: {
+        screw_ie8: true,
+        warnings: false
+      },
+      mangle: {
+        screw_ie8: true
+      }
+    }),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    })
+      'process.env.NODE_ENV': JSON.stringify('production')
+    }),
+    new HtmlWebpackPlugin({ title: 'React Customizable Carousel', template: path.resolve('examples', 'index.ejs') })
   ],
   resolve: {
     extensions: ['.js'],

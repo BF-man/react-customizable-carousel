@@ -16,7 +16,8 @@
     "build:lib": "babel src --out-dir lib",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
     "build:css": "postcss src/*.css --output styles/index.css --config postcss.config.js",
-    "clearall": "rimraf dist styles lib es"
+    "demo": "webpack --config ./webpack.config.js",
+    "clearall": "rimraf dist styles lib es demo"
   },
   "files": [
     "es",

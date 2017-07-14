@@ -2,6 +2,8 @@
 
 Latest version: ```0.0.3```
 
+[DEMO](https://bf-man.github.io/)
+
 Simple but effective customizable carousel component.
 It will render only ```showItemsCount + 2``` carousel items, where 2 is left and right hidden items.
 
