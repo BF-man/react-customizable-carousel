@@ -3,14 +3,10 @@ import { Carousel } from '../src'
 import { TestItem } from './TestItem'
 import '../src/index.css'
 
-export const Basic = ({ showItemsCount, itemsCount, title, infinite, transitionDuration }) => (
+export const Basic = ({ title, itemsCount, ...props }) => (
   <div>
     <h1>{title}</h1>
-    <Carousel
-      showItemsCount={showItemsCount}
-      infinite={infinite}
-      transitionDuration={transitionDuration}
-    >
+    <Carousel {...props}>
       {items(itemsCount)}
     </Carousel>
   </div>

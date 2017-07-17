@@ -39,8 +39,11 @@ Running examples locally:
         ```
 
 ### Props
-| prop               | type    | default | info                                      |
-| ------------------ | ------- | ------- | ----------------------------------------- |
-| infinite           | boolean | false   | items count should be showItemsCount + 1  |
-| showItemsCount     | integer | 3       |                                           |
-| transitionDuration | integer | 0.5     |                                           |
+| prop                  | type           | default      | info                                      |
+| --------------------- | -------------- | ------------ | ----------------------------------------- |
+| infinite              | boolean        | false        | items count should be showItemsCount + 1  |
+| showItemsCount        | integer        | 3            |                                           |
+| transitionDuration    | integer        | 0.5          | Slide animation duration (seconds)        |
+| nextArrow             | function/class | FaAngleRight | A function/class of component to extend default next arrow |
+| prevArrow             | function/class | FaAngleLeft  | A function/class of component to extend default prev arrow |
+| ArrowWrapperClassName | string         | ''           | Will be added provided className to arrow wrapper. Also will be added ArrowWrapperClassName--prev and ArrowWrapperClassName--next to corresponding arrows|

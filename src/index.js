@@ -1,6 +1,6 @@
 import React, { PureComponent, Children } from 'react'
 import List from './List'
-import { Arrow } from './Arrow'
+import { Arrow, ARROW_TYPES } from './Arrow'
 import FaAngleRight from 'react-icons/lib/fa/angle-right'
 import FaAngleLeft from 'react-icons/lib/fa/angle-left'
 
@@ -29,11 +29,15 @@ export class Carousel extends PureComponent {
     setTimeout(() => this.setState({ currentIndex: nextIndex, translateX: 0, transitionDuration: 0, inTransition: false }), transitionDuration * 1000)
   }
   render () {
-    const { children, showItemsCount } = this.props
+    const { children, showItemsCount, nextArrow, prevArrow, ArrowWrapperClassName } = this.props
     const { currentIndex, direction, transitionDuration, translateX } = this.state
     return (
       <div className='rcc-Carousel'>
-        <Arrow type='prev' onClick={this.handlePrevClick}><FaAngleLeft /></Arrow>
+        <Arrow
+          arrowType={ARROW_TYPES.prev}
+          className={ArrowWrapperClassName}
+          onClick={this.handlePrevClick}
+          component={prevArrow} />
         <List
           items={children}
           currentIndex={currentIndex}
@@ -41,13 +45,22 @@ export class Carousel extends PureComponent {
           direction={direction}
           transitionDuration={transitionDuration}
           translateX={translateX} />
-        <Arrow type='next' onClick={this.handleNextClick}><FaAngleRight /></Arrow>
+        <Arrow
+          arrowType={ARROW_TYPES.next}
+          className={ArrowWrapperClassName}
+          onClick={this.handleNextClick}
+          component={nextArrow} />
       </div>
     )
   }
 }
 
+const NextArrow = ({ onClick }) => <FaAngleRight onClick={onClick} />
+const PrevArrow = ({ onClick }) => <FaAngleLeft onClick={onClick} />
+
 Carousel.defaultProps = {
   transitionDuration: 0.5,
-  showItemsCount: 3
+  showItemsCount: 3,
+  nextArrow: NextArrow,
+  prevArrow: PrevArrow
 }
