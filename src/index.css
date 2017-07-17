@@ -18,10 +18,13 @@
   position: absolute;
   z-index: 1;
   cursor: pointer;
-  border-radius: 50%;
-  background-color: white;
+  top: calc(50% - (16 / 2)px);
   font-size: 16px;
-  top: calc(50% - 8px);
+
+  & > svg {
+    border-radius: 50%;
+    background-color: white;
+  }
 
   &--prev {
     left: 0;

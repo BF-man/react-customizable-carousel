@@ -1,5 +1,5 @@
 .rcc-TestItem {
-  padding: 5px;
+  padding: 0 5px;
   box-sizing: border-box;
   position: relative;
 
@@ -10,4 +10,34 @@
     align-items: center;
     justify-content: center;
   }
+}
+
+.rcc-CustomArrowWrapper {
+  height: 100%;
+  top: 0;
+  background-color: #86DDDD;
+  width: 35px;
+  transition-duration: 2s;
+  color: white;
+
+  &--prev {
+    border-radius: 5px 0 0 5px;
+    font-size: 20px;
+  }
+
+  &--next {
+    border-radius: 0 5px 5px 0;
+    font-size: 30px;
+
+    & .rcc-CustomArrow{
+      position: absolute;
+      top: 4px;
+    }
+
+  }
+}
+
+.rcc-CustomArrowWrapper:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 0.2px #BAEEEE;
 }
