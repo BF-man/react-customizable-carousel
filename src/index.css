@@ -34,3 +34,14 @@
     right: 0;
   }
 }
+
+.rcc-Dot {
+  cursor: pointer;
+}
+
+.rcc-Dots {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

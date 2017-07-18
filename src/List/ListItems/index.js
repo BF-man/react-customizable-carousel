@@ -1,22 +1,30 @@
 import React, { Component, Children, cloneElement } from 'react'
+import { cyclicArray } from '../../helpers/cyclicArray'
+import { DIRECTIONS } from '../../constants'
 
 const ADD_ITEMS_LEFT = 1
 const ADD_ITEMS_RIGHT = 1
 
 export class ListItems extends Component {
+  get addItemsLeft () {
+    const { scrollItems, direction } = this.props
+    return direction === DIRECTIONS.prev ? scrollItems : ADD_ITEMS_LEFT
+  }
+  get addItemsRight () {
+    const { scrollItems, direction } = this.props
+    return direction === DIRECTIONS.next ? scrollItems : ADD_ITEMS_RIGHT
+  }
+  get translateByDirection () {
+    const { direction, itemWidth, scrollItems } = this.props
+    return direction === DIRECTIONS.prev ? itemWidth * scrollItems : (-1) * itemWidth * scrollItems
+  }
+  get translateX () {
+    const { translateX } = this.props
+    return translateX === 0 ? 0 : this.translateByDirection
+  }
   get preparedChildren () {
     const { currentIndex, showItemsCount, children } = this.props
-    // at the beginning of the children array, should add last child to beginning
-    if (currentIndex === 0) {
-      return this.leftPadding(children).concat(children.slice(0, showItemsCount + ADD_ITEMS_RIGHT))
-    }
-    // approached right limit, should push more from the children array beginning
-    if (currentIndex >= children.length - 1 - showItemsCount) {
-      const restItems = children.slice(currentIndex - ADD_ITEMS_LEFT, currentIndex + showItemsCount + ADD_ITEMS_RIGHT)
-      return restItems.concat(this.rightPadding(children, restItems.length))
-    }
-    // in the middle of the children array
-    return children.slice(currentIndex - ADD_ITEMS_LEFT, currentIndex + showItemsCount + ADD_ITEMS_RIGHT)
+    return cyclicArray(children, currentIndex - this.addItemsLeft, currentIndex + showItemsCount + this.addItemsRight - 1)
   }
   get childrenStyle () {
     const { itemWidth } = this.props
@@ -24,21 +32,13 @@ export class ListItems extends Component {
       style: {
         width: `${itemWidth}px`,
         display: 'inline-block',
-        transform: `translate(${itemWidth * (-1)}px)`
+        transform: `translate(${itemWidth * this.addItemsLeft * (-1)}px)`
       }
     }
   }
-  leftPadding (clonedChildren) {
-    return clonedChildren.slice(-1 * ADD_ITEMS_LEFT)
-  }
-  rightPadding (clonedChildren, restItemsLength) {
-    const { showItemsCount } = this.props
-    if (restItemsLength - 1 > showItemsCount) return []
-    return clonedChildren.slice(0, showItemsCount - restItemsLength + ADD_ITEMS_LEFT + ADD_ITEMS_RIGHT)
-  }
   get style () {
-    const { transitionDuration, translateX } = this.props
-    return { transform: `translate(${translateX + 'px'})`, transitionDuration: `${transitionDuration}s` }
+    const { transitionDuration } = this.props
+    return { transform: `translate(${this.translateX + 'px'})`, transitionDuration: `${transitionDuration}s` }
   }
   cloneChildren (children, props) {
     return Children.map(children, function (child, index) {
