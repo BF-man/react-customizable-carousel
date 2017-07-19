@@ -2,6 +2,8 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Basic } from './Basic'
 import { CustomArrow } from './CustomArrow'
+import { CustomDot } from './CustomDot'
+
 import './index.css'
 
 const $root = document.getElementById('app')
@@ -22,6 +24,15 @@ render(
       nextArrow={NextArrow}
       prevArrow={PrevArrow}
       ArrowWrapperClassName='rcc-CustomArrowWrapper'
+    />
+    <Basic title='Dots' itemsCount={10} showDots />
+    <Basic title='Dots infinite' itemsCount={10} showDots infinite />
+    <Basic
+      title='Custom Dots'
+      itemsCount={10}
+      showDots
+      dot={CustomDot}
+      dotWrapperClassName='rcc-CustomDotWrapper'
     />
   </div>,
   $root
