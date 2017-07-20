@@ -1,4 +1,5 @@
 import React, { Component, Children, cloneElement } from 'react'
+import { ListItem } from '../ListItem'
 import { cyclicArray } from '../../helpers/cyclicArray'
 import { DIRECTIONS } from '../../constants'
 
@@ -26,14 +27,12 @@ export class ListItems extends Component {
     const { currentIndex, showItemsCount, children } = this.props
     return cyclicArray(children, currentIndex - this.addItemsLeft, currentIndex + showItemsCount + this.addItemsRight - 1)
   }
-  get childrenStyle () {
+  get childStyle () {
     const { itemWidth } = this.props
     return {
-      style: {
-        width: `${itemWidth}px`,
-        display: 'inline-block',
-        transform: `translate(${itemWidth * this.addItemsLeft * (-1)}px)`
-      }
+      width: `${itemWidth}px`,
+      display: 'inline-block',
+      transform: `translate(${itemWidth * this.addItemsLeft * (-1)}px)`
     }
   }
   get style () {
@@ -46,9 +45,23 @@ export class ListItems extends Component {
     }, this)
   }
   render () {
+    const { enableDragScroll, onNext, onPrev } = this.props
     return (
       <div className='rcc-ListItems' style={this.style}>
-        {this.cloneChildren(this.preparedChildren, this.childrenStyle)}
+        {this.cloneChildren(this.preparedChildren).map((child, index) => {
+          return (
+            <ListItem
+              className='rcc-ListItems-item'
+              key={index}
+              style={this.childStyle}
+              onNext={onNext}
+              onPrev={onPrev}
+              enableDragScroll={enableDragScroll}
+            >
+              {child}
+            </ListItem>
+          )
+        })}
       </div>
     )
   }
