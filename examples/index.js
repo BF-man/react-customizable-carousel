@@ -3,6 +3,7 @@ import { render } from 'react-dom'
 import { Basic } from './Basic'
 import { CustomArrow } from './CustomArrow'
 import { CustomDot } from './CustomDot'
+import { Cats } from './Cats'
 
 import './index.css'
 
@@ -13,6 +14,7 @@ const PrevArrow = (props) => <CustomArrow type='prev' {...props} />
 
 render(
   <div>
+    <Cats />
     <Basic title='Basic' itemsCount={5} />
     <Basic title='Custom count' itemsCount={8} showItemsCount={5} />
     <Basic title='Custom transition duration' transitionDuration={2} itemsCount={5} />

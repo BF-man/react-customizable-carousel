@@ -45,3 +45,8 @@
 .rcc-CustomDotWrapper {
   padding: 0 2px;
 }
+
+img {
+  height: 300px;
+  object-fit: cover;
+}

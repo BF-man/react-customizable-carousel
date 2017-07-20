@@ -33,9 +33,9 @@ Running examples locally:
     </Carousel>
     ```
   - Import CSS:
-        ```
-        @import "react-customizable-carousel";
-        ```
+        ```@import "react-customizable-carousel";```
+        or
+        ```@import "react-customizable-carousel/styles/index.css";```
 
 ### Props
 | prop                  | type           | default      | info                                      |
