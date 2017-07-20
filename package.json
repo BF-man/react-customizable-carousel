@@ -1,6 +1,6 @@
 {
   "name": "react-customizable-carousel",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "./lib/index.js",
   "module": "./es/index.js",
   "style": "./styles/index.css",

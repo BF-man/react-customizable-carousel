@@ -1,11 +1,12 @@
 import React, { PureComponent } from 'react'
-import { ListItems } from './ListItems'
 import { withContentRect } from 'react-measure'
+import { ListItems } from './ListItems'
 
 export class List extends PureComponent {
   render () {
     const { items, measureRef, showItemsCount, contentRect: { bounds: { width } },
-     currentIndex, direction, transitionDuration, translateX, scrollItems } = this.props
+     currentIndex, direction, transitionDuration, translateX, scrollItems, onNext, onPrev,
+       enableDragScroll } = this.props
     return (
       <div className='rcc-List' ref={measureRef}>
         <ListItems
@@ -16,6 +17,9 @@ export class List extends PureComponent {
           transitionDuration={transitionDuration}
           translateX={translateX}
           scrollItems={scrollItems}
+          onNext={onNext}
+          onPrev={onPrev}
+          enableDragScroll={enableDragScroll}
         >
           {items}
         </ListItems>

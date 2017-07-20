@@ -11,11 +11,11 @@ export const Cats = ({ title, itemsCount, ...props }) => (
   <div>
     <h1>Cats :3</h1>
     <Carousel {...props} infinite showItemsCount={5}>
-      <img src={Cat1} />
-      <img src={Cat2} />
-      <img src={Cat3} />
-      <img src={Cat4} />
-      <img src={Cat6} />
+      <img src={Cat1} draggable='false' />
+      <img src={Cat2} draggable='false' />
+      <img src={Cat3} draggable='false' />
+      <img src={Cat4} draggable='false' />
+      <img src={Cat6} draggable='false' />
     </Carousel>
   </div>
 )

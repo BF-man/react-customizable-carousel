@@ -68,7 +68,7 @@ export class Carousel extends PureComponent {
   }
   render () {
     const { children, showItemsCount, nextArrow, prevArrow, ArrowWrapperClassName,
-      showDots, dot, dotWrapperClassName, dotsWrapperClassName } = this.props
+      showDots, dot, dotWrapperClassName, dotsWrapperClassName, enableDragScroll } = this.props
     const { currentIndex, direction, transitionDuration, translateX, scrollItems, dotsIndex } = this.state
     return (
       <div className='rcc-Carousel'>
@@ -86,6 +86,9 @@ export class Carousel extends PureComponent {
           transitionDuration={transitionDuration}
           translateX={translateX}
           scrollItems={scrollItems}
+          onNext={this.handleNextClick}
+          onPrev={this.handlePrevClick}
+          enableDragScroll={enableDragScroll}
         />
         <Arrow
           arrowType={ARROW_TYPES.next}
@@ -116,5 +119,6 @@ Carousel.defaultProps = {
   showItemsCount: 3,
   nextArrow: NextArrow,
   prevArrow: PrevArrow,
-  showDots: false
+  showDots: false,
+  enableDragScroll: true
 }
