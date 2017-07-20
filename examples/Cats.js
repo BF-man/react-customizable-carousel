@@ -9,7 +9,7 @@ import '../src/index.css'
 
 export const Cats = ({ title, itemsCount, ...props }) => (
   <div>
-    <h1>Cats :3</h1>
+    <h1>{title}</h1>
     <Carousel {...props} infinite showItemsCount={5}>
       <img src={Cat1} draggable='false' />
       <img src={Cat2} draggable='false' />

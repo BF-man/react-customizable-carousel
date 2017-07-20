@@ -45,7 +45,8 @@ export class ListItems extends Component {
     }, this)
   }
   render () {
-    const { enableDragScroll, onNext, onPrev } = this.props
+    const { enableDragScroll, onNext, onPrev, itemWidth, enable3d, showItemsCount,
+      currentIndex, nextIndex, inTransition, transitionDuration, direction, effectOf3d } = this.props
     return (
       <div className='rcc-ListItems' style={this.style}>
         {this.cloneChildren(this.preparedChildren).map((child, index) => {
@@ -53,10 +54,20 @@ export class ListItems extends Component {
             <ListItem
               className='rcc-ListItems-item'
               key={index}
-              style={this.childStyle}
+              index={index}
+              width={itemWidth}
+              addItemsLeft={this.addItemsLeft}
               onNext={onNext}
               onPrev={onPrev}
               enableDragScroll={enableDragScroll}
+              enable3d={enable3d}
+              effectOf3d={effectOf3d}
+              showItemsCount={showItemsCount}
+              currentIndex={currentIndex}
+              nextIndex={nextIndex}
+              inTransition={inTransition}
+              transitionDuration={transitionDuration}
+              direction={direction}
             >
               {child}
             </ListItem>
