@@ -7,7 +7,11 @@ import { Dots } from './Dots'
 import { DIRECTIONS } from './constants'
 
 export class Carousel extends PureComponent {
-  state = { currentIndex: 0, dotsIndex: 0, translateX: 0, inTransition: false, scrollItems: 1 }
+  get cssClass () {
+    const { className } = this.props
+    return `rcc-Carousel ${className || ''}`
+  }
+  state = { currentIndex: 0, nextIndex: 0, dotsIndex: 0, translateX: 0, inTransition: false, scrollItems: 1 }
   handleNextClick = () => {
     const { currentIndex, inTransition, scrollItems } = this.state
     const { children, infinite, transitionDuration, showItemsCount } = this.props
@@ -16,7 +20,7 @@ export class Carousel extends PureComponent {
 
     if (inTransition || !infinite && currentIndex > childrenCount - 1 - showItemsCount || childrenCount < showItemsCount) return
 
-    this.setState({ currentIndex, scrollItems, direction: DIRECTIONS.next, transitionDuration, translateX: undefined, inTransition: true })
+    this.setState({ currentIndex, nextIndex, scrollItems, direction: DIRECTIONS.next, transitionDuration, translateX: undefined, inTransition: true })
     setTimeout(() => (
       this.setState({
         currentIndex: nextIndex,
@@ -34,7 +38,7 @@ export class Carousel extends PureComponent {
 
     if (inTransition || !infinite && currentIndex === 0 || childrenCount < showItemsCount) return
 
-    this.setState({ currentIndex, scrollItems, direction: DIRECTIONS.prev, transitionDuration, translateX: undefined, inTransition: true })
+    this.setState({ currentIndex, nextIndex, scrollItems, direction: DIRECTIONS.prev, transitionDuration, translateX: undefined, inTransition: true })
     setTimeout(() => (
       this.setState({
         currentIndex: nextIndex,
@@ -67,20 +71,24 @@ export class Carousel extends PureComponent {
       })), transitionDuration * 1000)
   }
   render () {
-    const { children, showItemsCount, nextArrow, prevArrow, ArrowWrapperClassName,
-      showDots, dot, dotWrapperClassName, dotsWrapperClassName, enableDragScroll } = this.props
-    const { currentIndex, direction, transitionDuration, translateX, scrollItems, dotsIndex } = this.state
+    const { children, showItemsCount, nextArrow, prevArrow, arrowWrapperClassName,
+      showDots, dot, dotWrapperClassName, dotsWrapperClassName, enableDragScroll,
+      enable3d, effectOf3d, listWrapperClassName } = this.props
+    const { currentIndex, direction, transitionDuration, translateX, scrollItems,
+      dotsIndex, nextIndex, inTransition } = this.state
     return (
-      <div className='rcc-Carousel'>
+      <div className={this.cssClass}>
         <Arrow
           arrowType={ARROW_TYPES.prev}
-          className={ArrowWrapperClassName}
+          className={arrowWrapperClassName}
           onClick={this.handlePrevClick}
           component={prevArrow}
         />
         <List
+          className={listWrapperClassName}
           items={children}
           currentIndex={currentIndex}
+          nextIndex={nextIndex}
           showItemsCount={showItemsCount}
           direction={direction}
           transitionDuration={transitionDuration}
@@ -89,10 +97,13 @@ export class Carousel extends PureComponent {
           onNext={this.handleNextClick}
           onPrev={this.handlePrevClick}
           enableDragScroll={enableDragScroll}
+          enable3d={enable3d}
+          effectOf3d={effectOf3d}
+          inTransition={inTransition}
         />
         <Arrow
           arrowType={ARROW_TYPES.next}
-          className={ArrowWrapperClassName}
+          className={arrowWrapperClassName}
           onClick={this.handleNextClick}
           component={nextArrow}
         />
@@ -120,5 +131,7 @@ Carousel.defaultProps = {
   nextArrow: NextArrow,
   prevArrow: PrevArrow,
   showDots: false,
-  enableDragScroll: true
+  enableDragScroll: true,
+  enable3d: false,
+  effectOf3d: { name: 'scale' }
 }
