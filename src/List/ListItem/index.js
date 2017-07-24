@@ -44,11 +44,13 @@ export class ListItem extends Component {
   }
   get style3dDaw () {
     const { width, addItemsLeft, transitionDuration, effectOf3d: { dawStep } } = this.props
-    const translate = `translate3d(${width * addItemsLeft * (-1)}px, ${dawStep + this.translateCoefficient * dawStep}px, ${this.translateCoefficient}px)`
+    const translate = `translate3d(${width * addItemsLeft * (-1)}px, ${dawStep + this.translateCoefficient * dawStep * 1}px, ${this.translateCoefficient}px)`
+    console.log(this.translateCoefficient)
+    const scale = `scale(${1.5 - 0.5 * Math.abs(this.translateCoefficient)})`
     return {
       width: `${width}px`,
       display: 'inline-block',
-      transform: `perspective(1000px) ${translate}`,
+      transform: `perspective(1000px) ${translate} ${scale}`,
       transitionDuration: `${transitionDuration}s`
     }
   }
