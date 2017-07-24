@@ -1,12 +1,14 @@
-const cloneArrayTimes = (array, times) => {
+export const cloneArrayTimes = (array, times) => {
   let result = []
-  for (let i = 0; i < times; i++) {
+  const floorTimes = Math.floor(times)
+  for (let i = 0; i < floorTimes; i++) {
     result = result.concat(array)
   }
   return result
 }
 
 export const cyclicArray = (array, fromIndex, toIndexIncluding) => {
+  if (!array || array.length < 1) return []
   const length = array.length
   if (fromIndex >= 0 && toIndexIncluding <= length - 1) return array.slice(fromIndex, toIndexIncluding + 1)
   // exceeded left limit

@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Arrow adds custom className 1`] = `
+<div
+  className="rcc-Arrow  customClassName "
+>
+  <div>
+    Arrow test
+  </div>
+</div>
+`;
+
+exports[`Arrow adds proper arrow type - next 1`] = `
+<div
+  className="rcc-Arrow rcc-Arrow--next "
+>
+  <div>
+    Arrow test
+  </div>
+</div>
+`;
+
+exports[`Arrow adds proper arrow type - next to customClassName 1`] = `
+<div
+  className="rcc-Arrow rcc-Arrow--next customClassName customClassName--next"
+>
+  <div>
+    Arrow test
+  </div>
+</div>
+`;
+
+exports[`Arrow adds proper arrow type - prev 1`] = `
+<div
+  className="rcc-Arrow rcc-Arrow--prev "
+>
+  <div>
+    Arrow test
+  </div>
+</div>
+`;
+
+exports[`Arrow adds proper arrow type - prev to customClassName 1`] = `
+<div
+  className="rcc-Arrow rcc-Arrow--prev customClassName customClassName--prev"
+>
+  <div>
+    Arrow test
+  </div>
+</div>
+`;
+
+exports[`Arrow does not add invalid arrow type - test 1`] = `
+<div
+  className="rcc-Arrow  "
+>
+  <div>
+    Arrow test
+  </div>
+</div>
+`;
+
+exports[`Arrow does not add invalid arrow type - test 2`] = `
+<div
+  className="rcc-Arrow  customClassName "
+>
+  <div>
+    Arrow test
+  </div>
+</div>
+`;
+
+exports[`Arrow renders component 1`] = `
+<div
+  className="rcc-Arrow  "
+>
+  <div>
+    Arrow test
+  </div>
+</div>
+`;

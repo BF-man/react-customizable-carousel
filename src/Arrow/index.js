@@ -8,8 +8,9 @@ export const ARROW_TYPES = {
 export class Arrow extends PureComponent {
   get cssClass () {
     const { className, arrowType } = this.props
-    const customClassName = !className ? '' : `${className} ${arrowType ? `${className}--${arrowType}` : ''}`
-    return `rcc-Arrow ${arrowType ? `rcc-Arrow--${arrowType}` : ''} ${customClassName}`
+    const safeArrowType = Object.keys(ARROW_TYPES).includes(arrowType) ? ARROW_TYPES[arrowType] : undefined
+    const customClassName = !className ? '' : `${className} ${safeArrowType ? `${className}--${safeArrowType}` : ''}`
+    return `rcc-Arrow ${safeArrowType ? `rcc-Arrow--${safeArrowType}` : ''} ${customClassName}`
   }
   render () {
     const { onClick, component, arrowType } = this.props
