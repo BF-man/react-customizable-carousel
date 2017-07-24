@@ -9,6 +9,7 @@
 
 .rcc-ListItems {
   white-space: nowrap;
+  transform-style: preserve-3d; 
 }
 
 .rcc-Arrow {
