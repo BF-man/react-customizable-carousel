@@ -9,7 +9,7 @@
 
 .rcc-ListItems {
   white-space: nowrap;
-  transform-style: preserve-3d; 
+  transform-style: preserve-3d;
 }
 
 .rcc-Arrow {
@@ -19,7 +19,7 @@
   position: absolute;
   z-index: 1;
   cursor: pointer;
-  top: calc(50% - (16 / 2)px);
+  top: calc(50% - 8px);
   font-size: 16px;
 
   & > svg {
@@ -45,4 +45,19 @@
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+.rcc-Employees {
+
+}
+
+.rcc-Employee {
+  position: relative;
+  &-reflection {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    transform: scaleX(-1) rotate(180deg);
+    filter: brightness(0.8);
+  }
 }

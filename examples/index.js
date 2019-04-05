@@ -4,6 +4,7 @@ import { Basic } from './Basic'
 import { CustomArrow } from './CustomArrow'
 import { CustomDot } from './CustomDot'
 import { Cats } from './Cats'
+import { Employees } from './Employees'
 
 import './index.css'
 
@@ -14,6 +15,7 @@ const PrevArrow = (props) => <CustomArrow type='prev' {...props} />
 
 render(
   <div>
+    <Employees />
     <Cats title='Cats :3' />
     <Cats title='Cats 3d Scale' enable3d />
     <Cats
