@@ -30,7 +30,7 @@
     "react-dom": "^16.8.0"
   },
   "dependencies": {
-    "react-measure": "^2.0.2"
+    "react-measure": "^2.2.5"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",

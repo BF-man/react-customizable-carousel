@@ -565,7 +565,7 @@
     "@babel/plugin-transform-react-jsx-self" "^7.0.0"
     "@babel/plugin-transform-react-jsx-source" "^7.0.0"
 
-"@babel/runtime@^7.0.0-beta.55":
+"@babel/runtime@^7.0.0-beta.55", "@babel/runtime@^7.2.0":
   version "7.4.3"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.3.tgz#79888e452034223ad9609187a0ad1fe0d2ad4bdc"
   dependencies:
@@ -2870,9 +2870,9 @@ get-caller-file@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-1.0.2.tgz#f702e63127e7e231c160a80c1554acb70d5047e5"
 
-get-node-dimensions@^1.2.0:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/get-node-dimensions/-/get-node-dimensions-1.2.2.tgz#7a71e8624cf9e1ab74599bb05b7e5116e995e45b"
+get-node-dimensions@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/get-node-dimensions/-/get-node-dimensions-1.2.1.tgz#fb7b4bb57060fb4247dd51c9d690dfbec56b0823"
 
 get-stdin@^6.0.0:
   version "6.0.0"
@@ -5517,7 +5517,7 @@ prop-types@15.5.8:
   dependencies:
     fbjs "^0.8.9"
 
-prop-types@^15.5.10, prop-types@^15.6.2:
+prop-types@^15.6.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   dependencies:
@@ -5661,13 +5661,14 @@ react-is@^16.8.1:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
 
-react-measure@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/react-measure/-/react-measure-2.0.2.tgz#072a9a5fafc01dfbadc1fa5fb09fc351037f636c"
+react-measure@^2.2.5:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/react-measure/-/react-measure-2.2.5.tgz#35f6be9a8c31d61a4cf847282f9d54c310eb1624"
   dependencies:
-    get-node-dimensions "^1.2.0"
-    prop-types "^15.5.10"
-    resize-observer-polyfill "^1.4.2"
+    "@babel/runtime" "^7.2.0"
+    get-node-dimensions "^1.2.1"
+    prop-types "^15.6.2"
+    resize-observer-polyfill "^1.5.0"
 
 react@^16.8.6:
   version "16.8.6"
@@ -5919,9 +5920,9 @@ requires-port@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
 
-resize-observer-polyfill@^1.4.2:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.4.2.tgz#a37198e6209e888acb1532a9968e06d38b6788e5"
+resize-observer-polyfill@^1.5.0:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
 
 resolve-cwd@^2.0.0:
   version "2.0.0"
