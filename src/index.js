@@ -1,6 +1,5 @@
 import React, { PureComponent, Children } from 'react'
-import FaAngleRight from 'react-icons/lib/fa/angle-right'
-import FaAngleLeft from 'react-icons/lib/fa/angle-left'
+import { ChevronLeftIcon, ChevronRightIcon } from './components/Icon'
 import List from './List'
 import { Arrow, ARROW_TYPES } from './Arrow'
 import { Dots } from './Dots'
@@ -122,8 +121,8 @@ export class Carousel extends PureComponent {
   }
 }
 
-const NextArrow = ({ onClick }) => <FaAngleRight onClick={onClick} />
-const PrevArrow = ({ onClick }) => <FaAngleLeft onClick={onClick} />
+const NextArrow = ({ onClick }) => <ChevronRightIcon onClick={onClick} />
+const PrevArrow = ({ onClick }) => <ChevronLeftIcon onClick={onClick} />
 
 Carousel.defaultProps = {
   transitionDuration: 0.5,

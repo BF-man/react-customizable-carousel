@@ -21,7 +21,10 @@
   top: calc(50% - (16 / 2)px);
   font-size: 16px;
 
-  & > svg {
+  & > img {
+    border: 3px solid white;
+    height: 10px;
+    width: 10px;
     border-radius: 50%;
     background-color: white;
   }
