@@ -22,18 +22,8 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           'style-loader',
-          'css-loader?importLoaders=1',
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: function () {
-                return [
-                  require('postcss-import')({ skipDuplicates: true }),
-                  require('postcss-cssnext')
-                ]
-              }
-            }
-          }
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          'postcss-loader'
         ]
       },
       {

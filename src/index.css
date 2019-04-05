@@ -1,6 +1,8 @@
 .rcc-Carousel {
   position: relative;
   user-select: none;
+  display: flex;
+  align-items: center;
 }
 
 .rcc-List {
@@ -18,7 +20,6 @@
   position: absolute;
   z-index: 1;
   cursor: pointer;
-  top: calc(50% - (16 / 2)px);
   font-size: 16px;
 
   & > img {

@@ -1,12 +1,15 @@
 {
   "presets": [
-    ["env", { "es2015": { "modules": false } }],
-    "react"
+    [
+      "@babel/preset-env",
+      {
+        "modules": false,
+        "useBuiltIns": "entry"
+      }
+    ],
+    "@babel/preset-react",
   ],
   "plugins": [
-    "transform-class-properties",
-    "transform-object-rest-spread",
-    ["transform-runtime", { "polyfill": false, "regenerator": true }],
-    ["lodash"]
+    "@babel/plugin-proposal-class-properties",
   ]
 }
