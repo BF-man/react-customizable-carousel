@@ -1,6 +1,6 @@
 # Customizable react carousel
 
-Latest version: ```0.0.7```
+Latest version: ```0.1.1```
 
 [DEMO](https://bf-man.github.io/)
 
