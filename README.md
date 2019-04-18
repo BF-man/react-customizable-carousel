@@ -32,10 +32,6 @@ Running examples locally:
       <h1>6</h1>
     </Carousel>
     ```
-  - Import CSS:
-        ```@import "react-customizable-carousel";```
-        or
-        ```@import "react-customizable-carousel/styles/index.css";```
 
 ### Props
 | prop                  | type           | default      | info                                      |
