@@ -10,7 +10,7 @@ Running examples locally:
 
   - clone project
   - run ```yarn```
-  - run ```yarn dev-server```
+  - run ```yarn dev```
   - open ```localhost:8080```
 
 ### Installation
@@ -32,10 +32,6 @@ Running examples locally:
       <h1>6</h1>
     </Carousel>
     ```
-  - Import CSS:
-        ```@import "react-customizable-carousel";```
-        or
-        ```@import "react-customizable-carousel/styles/index.css";```
 
 ### Props
 | prop                  | type           | default      | info                                      |
@@ -58,4 +54,4 @@ Running examples locally:
 | arrowWrapperClassName | string         | ''           | Will be added provided className to Arrow wrapper. Also will be added arrowWrapperClassName--prev and arrowWrapperClassName--next to corresponding arrows|
 | dotWrapperClassName   | string         | ''           | Will be added provided className to Dot wrapper   |
 | dotsWrapperClassName  | string         | ''           | Will be added provided className to Dots wrapper  |
-| listWrapperClassName  | string         | ''           | Will be added provided className to List wrapper  |  
+| listWrapperClassName  | string         | ''           | Will be added provided className to List wrapper  |

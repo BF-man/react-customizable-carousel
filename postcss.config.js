@@ -1,6 +1,9 @@
 module.exports = {
-  plugins: [
-    require('postcss-import')({ skipDuplicates: true }),
-    require('postcss-cssnext')
-  ]
+  plugins: {
+    'postcss-import': {},
+    'postcss-preset-env': {},
+    'postcss-nested': {},
+    'postcss-nested-ancestors': {},
+    'cssnano': {}
+  }
 }

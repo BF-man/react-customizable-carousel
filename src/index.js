@@ -1,10 +1,11 @@
 import React, { PureComponent, Children } from 'react'
-import FaAngleRight from 'react-icons/lib/fa/angle-right'
-import FaAngleLeft from 'react-icons/lib/fa/angle-left'
+import { ChevronLeftIcon, ChevronRightIcon } from './components/Icon'
 import List from './List'
 import { Arrow, ARROW_TYPES } from './Arrow'
 import { Dots } from './Dots'
 import { DIRECTIONS } from './constants'
+
+import './index.css'
 
 export class Carousel extends PureComponent {
   get cssClass () {
@@ -78,35 +79,37 @@ export class Carousel extends PureComponent {
       dotsIndex, nextIndex, inTransition } = this.state
     return (
       <div className={this.cssClass}>
-        <Arrow
-          arrowType={ARROW_TYPES.prev}
-          className={arrowWrapperClassName}
-          onClick={this.handlePrevClick}
-          component={prevArrow}
-        />
-        <List
-          className={listWrapperClassName}
-          items={children}
-          currentIndex={currentIndex}
-          nextIndex={nextIndex}
-          showItemsCount={showItemsCount}
-          direction={direction}
-          transitionDuration={transitionDuration}
-          translateX={translateX}
-          scrollItems={scrollItems}
-          onNext={this.handleNextClick}
-          onPrev={this.handlePrevClick}
-          enableDragScroll={enableDragScroll}
-          enable3d={enable3d}
-          effectOf3d={effectOf3d}
-          inTransition={inTransition}
-        />
-        <Arrow
-          arrowType={ARROW_TYPES.next}
-          className={arrowWrapperClassName}
-          onClick={this.handleNextClick}
-          component={nextArrow}
-        />
+        <div>
+          <Arrow
+            arrowType={ARROW_TYPES.prev}
+            className={arrowWrapperClassName}
+            onClick={this.handlePrevClick}
+            component={prevArrow}
+          />
+          <List
+            className={listWrapperClassName}
+            items={children}
+            currentIndex={currentIndex}
+            nextIndex={nextIndex}
+            showItemsCount={showItemsCount}
+            direction={direction}
+            transitionDuration={transitionDuration}
+            translateX={translateX}
+            scrollItems={scrollItems}
+            onNext={this.handleNextClick}
+            onPrev={this.handlePrevClick}
+            enableDragScroll={enableDragScroll}
+            enable3d={enable3d}
+            effectOf3d={effectOf3d}
+            inTransition={inTransition}
+          />
+          <Arrow
+            arrowType={ARROW_TYPES.next}
+            className={arrowWrapperClassName}
+            onClick={this.handleNextClick}
+            component={nextArrow}
+          />
+        </div>
         {!showDots ? null : (
           <Dots
             onDotClick={this.handleDotClick}
@@ -122,8 +125,8 @@ export class Carousel extends PureComponent {
   }
 }
 
-const NextArrow = ({ onClick }) => <FaAngleRight onClick={onClick} />
-const PrevArrow = ({ onClick }) => <FaAngleLeft onClick={onClick} />
+const NextArrow = ({ onClick }) => <ChevronRightIcon onClick={onClick} />
+const PrevArrow = ({ onClick }) => <ChevronLeftIcon onClick={onClick} />
 
 Carousel.defaultProps = {
   transitionDuration: 0.5,
