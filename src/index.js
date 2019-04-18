@@ -5,6 +5,8 @@ import { Arrow, ARROW_TYPES } from './Arrow'
 import { Dots } from './Dots'
 import { DIRECTIONS } from './constants'
 
+import './index.css'
+
 export class Carousel extends PureComponent {
   get cssClass () {
     const { className } = this.props

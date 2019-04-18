@@ -12,10 +12,11 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --hot --port=8080 --output-public-path=http://localhost:8080/ --config ./webpack.config.dev.js",
-    "build": "yarn build:lib && yarn build:es && yarn build:css",
-    "build:lib": "babel src --out-dir lib",
-    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
-    "build:css": "postcss src/*.css --output styles/index.css --config postcss.config.js",
+    "build": "yarn clearall && yarn build:lib && yarn build:es && yarn build:lib:css && yarn build:es:css",
+    "build:lib": "babel src --out-dir lib --copy-files",
+    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es --copy-files",
+    "build:es:css": "postcss src/*.css --output es/index.css --config postcss.config.js",
+    "build:lib:css": "postcss src/*.css --output lib/index.css --config postcss.config.js",
     "demo": "webpack --config ./webpack.config.js",
     "clearall": "rimraf dist styles lib es demo"
   },
