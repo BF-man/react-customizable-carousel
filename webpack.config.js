@@ -3,8 +3,8 @@ var glob = require('glob')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
-module.exports = {
-  devtool: 'sourcemap',
+module.exports = (env, argv) => ({
+  devtool: argv.mode === 'development' ? 'sourcemap' : undefined,
   stats: {
     errorDetails: true
   },
@@ -53,4 +53,4 @@ module.exports = {
   devServer: {
     historyApiFallback: true
   }
-}
+})

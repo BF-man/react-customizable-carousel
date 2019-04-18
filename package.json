@@ -11,13 +11,13 @@
   "author": "Bubnov Artem (https://github.com/BF-man)",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server --hot --port=8080 --output-public-path=http://localhost:8080/ --config ./webpack.config.dev.js",
+    "dev": "webpack-dev-server --hot --port=8080 --output-public-path=http://localhost:8080/ --config ./webpack.config.js --mode=development",
     "build": "yarn clearall && yarn build:lib && yarn build:es && yarn build:lib:css && yarn build:es:css",
     "build:lib": "babel src --out-dir lib --copy-files",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es --copy-files",
     "build:es:css": "postcss src/*.css --output es/index.css --config postcss.config.js",
     "build:lib:css": "postcss src/*.css --output lib/index.css --config postcss.config.js",
-    "demo": "webpack --config ./webpack.config.js",
+    "demo": "webpack --config ./webpack.config.js --mode=production",
     "clearall": "rimraf dist styles lib es demo"
   },
   "files": [
