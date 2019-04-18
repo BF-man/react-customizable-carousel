@@ -1,6 +1,4 @@
 import React, { PureComponent } from 'react'
-import FaCircle from 'react-icons/lib/fa/circle'
-import FaCircleO from 'react-icons/lib/fa/circle-o'
 
 export class DotsDot extends PureComponent {
   handleClick = () => {
@@ -22,4 +20,6 @@ export class DotsDot extends PureComponent {
   }
 }
 
-const DefaultContent = ({ current }) => current ? <FaCircle /> : <FaCircleO />
+const DefaultContent = ({ current }) => current
+  ? <div className="rcc-Circle-icon rcc-Circle-icon--filled" />
+  : <div className="rcc-Circle-icon" />
